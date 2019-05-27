@@ -18,16 +18,28 @@ body{
     padding-left: 5%;
     padding-right: 5%;
     font-size: 24px;
-    border: 2px red solid;
+    border: 2px black solid;
 }
 
 .flash-card-container {
     display: flex;
 }
 
+.flash-card {
+    border: 1px blue solid;
+    padding-right: 145px;
+    padding-left: 145px;
+    padding-bottom: 90px;
+    background-color: white;
+    margin-bottom: 45px;
+}
 
+.front {
+    font-weight: bold;
+    text-align: center;
+}
 
-
-button {
-    
+.back {
+    font-weight: bold;
+    text-align: center;
 }
