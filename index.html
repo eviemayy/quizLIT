@@ -1,4 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
 
-<h1>Hi</h1>
-<h2>Hello</h2>
-<h3>Sup</h3>
+    <meta charset="utf-8">
+    <title>QuizLIT</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" media="screen">
+    <script src="index.js" charset="utf-8" defer></script>
+
+  </head>
+
+  <body>
+
+    <header>
+
+      <h1 class="site-title">QuizLIT</h1>
+
+    <nav class="navbar">
+      <ul class="navlist">
+        <li class="navitem"><a href="#">Home</a></li>
+        <li class="navitem"><a href="#">CS290</a></li>
+        <li class="navitem"><a href="#">Another class</a></li>
+     </ul>
+
+    </nav>
+    </header>
+
+    <main class="flash-card-container">
+      <article class="flash-card">
+          <p class="front term">Term</p>
+          <p class="back definition">Definition</p>
+      </article>
+    </main>
+
+    <button type="button" class="create-new-card"><i class="far fa-plus-square"></i></button>
+    <button type="button" class="create-new-set">Create New Flash Card Set</button>
+
+
+    <div id="create-flashcard-modal" class="hidden">
+      <div class="term">
+        <textarea class="term-input">Term</textarea>
+      </div>
+      <div class="defintion">
+        <textarea class="definition-input">Definition</textarea>
+      </div>
+
+      <button type="button" class="modal-create-flashcard">Create Card</button>
+      <button type="button" class="modal-cancel-flashcard"><i class="far fa-times-circle"></i></<button>
+    </div>
+
+
+    <div id="create-new-set-modal" class="hidden">
+      <div class="class">
+        <textarea class="term-input">Class Name</textarea>
+      </div>
+
+      <button type="button" class="modal-create-set">Create New Set</button>
+      <button type="button" class="modal-cancel-set"><i class="far fa-times-circle"></i></<button>
+    </div>
+
+
+</html>
