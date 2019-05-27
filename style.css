@@ -1,0 +1,33 @@
+body{
+    background-color: whitesmoke;
+}
+.site-title {
+    text-align: center;
+    font-size: 64px;
+    text-decoration: underline; 
+}
+
+.navlist {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%
+}
+
+.navitem {
+    display: flex;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 24px;
+    border: 2px red solid;
+}
+
+.flash-card-container {
+    display: flex;
+}
+
+
+
+
+button {
+    
+}
