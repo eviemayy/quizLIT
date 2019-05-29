@@ -1,10 +1,12 @@
 body{
     background-color: whitesmoke;
+    margin: 0;
 }
 .site-title {
     text-align: center;
     font-size: 64px;
-    text-decoration: underline; 
+    background-color: lightblue;
+    margin: 0;
 }
 
 .navlist {
@@ -21,6 +23,10 @@ body{
     border: 2px black solid;
 }
 
+.navitem a{
+    text-decoration: none;
+    color: black;
+}
 .flash-card-container {
     display: flex;
 }
