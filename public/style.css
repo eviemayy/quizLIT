@@ -1,15 +1,26 @@
 body{
     background-color: whitesmoke;
+    font-family: "Gill Sans", sans-serif;
     margin: 0;
 }
 .site-title {
+    font-family: "Gill Sans", sans-serif;
+    color: white;
     text-align: center;
     font-size: 64px;
     background-color: lightblue;
     margin: 0;
 }
 
-.navlist {
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: lightgrey;
+}
+
+/*.navlist {
     display: flex;
     margin-left: 5%;
     margin-right: 5%
@@ -21,23 +32,41 @@ body{
     padding-right: 5%;
     font-size: 24px;
     border: 2px black solid;
-}
+}*/
 
 .navitem a{
     text-decoration: none;
     color: black;
+    display: block;
+    padding: 8px 16px;
 }
+
+.navitem a:hover {
+    background-color: grey;
+}
+
 .flash-card-container {
     display: flex;
+    perspective: 700;
+    justify-content: center;
 }
 
 .flash-card {
-    border: 1px blue solid;
+    border: 1px grey solid;
     padding-right: 145px;
     padding-left: 145px;
     padding-bottom: 90px;
     background-color: white;
     margin-bottom: 45px;
+    align-items: center;
+
+    transition: all 0.6s ease;
+    transform-style: preserve-3d;
+
+}
+
+.flash-card:active {
+  transform: rotateY(360deg);
 }
 
 .front {
@@ -53,4 +82,31 @@ body{
 .error-page {
     text-align: center;
     font-size: 32pt;
+}
+
+#next-flash-card {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 30px;
+  color: grey;
+  cursor: pointer;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+#create-flashcard-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+
+.hidden{
+  display: none;
 }
