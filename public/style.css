@@ -105,8 +105,19 @@ ul {
   right: 0;
   z-index: 1010;
   overflow: scroll;
+  background-color: white;
 }
 
 .hidden{
   display: none;
+}
+
+.modal-dialog{
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
 }
