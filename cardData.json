@@ -1,0 +1,15 @@
+{
+    "cs290": {
+        "url": "/cs290",
+        "cards": [
+            {
+                "term": "test1",
+                "definition": "test2"
+            },
+            {
+                "term": "test3",
+                "definition": "test4"
+            }
+        ]
+    }
+}

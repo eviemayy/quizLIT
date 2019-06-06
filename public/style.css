@@ -59,6 +59,8 @@ ul {
     background-color: white;
     margin-bottom: 45px;
     align-items: center;
+    width: 500px;
+    height: 350px;
 
     transition: all 0.6s ease;
     transform-style: preserve-3d;
@@ -84,7 +86,7 @@ ul {
     font-size: 32pt;
 }
 
-#next-flash-card {
+#next-flash-card-button {
   position: fixed;
   right: 10px;
   bottom: 10px;
