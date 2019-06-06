@@ -1,5 +1,5 @@
 var newCardButton = document.getElementsByClassName('create-new-card')[0];
-var modalWindow = document.getElementById('create-flashcard-modal');
+var modalCardWindow = document.getElementById('create-flashcard-modal');
 var modalTermInput = document.getElementsByClassName('term-input')[0];
 var modalDefInput = document.getElementsByClassName('definition-input')[0];
 
@@ -7,15 +7,15 @@ var modalDefInput = document.getElementsByClassName('definition-input')[0];
 var counter1 = 1;
 var counter2 = 1;
 
-//opens up the modal
+//opens up the term modal
 newCardButton.addEventListener('click', function(event){
-    modalWindow.classList.toggle('hidden');
+    modalCardWindow.classList.toggle('hidden');
 });
 
 //closes the modal and reenters term and definition 'prompt'
 var cancelCardButton = document.getElementsByClassName('modal-cancel-flashcard')[0];
 cancelCardButton.addEventListener('click', function(event){
-    modalWindow.classList.toggle('hidden');
+    modalCardWindow.classList.toggle('hidden');
     modalTermInput.value = 'Term';
     modalDefInput.value = 'Definition';
     counter1 = 1;
@@ -37,3 +37,32 @@ modalDefInput.addEventListener('click', function(event){
         counter2 = 0;
     }
 });
+
+var newSetButton = document.getElementsByClassName('create-new-set')[0];
+var modalSetWindow = document.getElementById('create-new-set-modal');
+var modalClassNameInput = document.getElementsByClassName('class-name-input')[0];
+var cancelSetButton = document.getElementsByClassName('modal-cancel-set');
+var counter3 = 1;
+
+//opens up the set modal
+newSetButton.addEventListener('click', function(event){
+    modalSetWindow.classList.toggle('hidden');
+    modalSetWindow.value = 'Class Name';
+});
+
+var cancelSetButton = document.getElementsByClassName('modal-cancel-set')[0];
+cancelSetButton.addEventListener('click', function(event){
+    modalSetWindow.classList.toggle('hidden');
+    modalClassNameInput.value = 'ClassName';
+    counter3 = 1;
+});
+
+
+//clears the input boxes of prompts when user clicks on the box
+modalClassNameInput.addEventListener('click', function(event){
+    if(counter3 == 1){
+        modalClassNameInput.value = '';
+        counter3 = 0;
+    }
+});
+
