@@ -66,3 +66,7 @@ modalClassNameInput.addEventListener('click', function(event){
     }
 });
 
+var addCourse = document.getElementById('add-course');
+addCourse.addEventListener('click', function(event) {
+    console.log("Adding course");
+});
