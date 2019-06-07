@@ -112,3 +112,24 @@ ul {
 .hidden{
   display: none;
 }
+
+.flashcard-modal-dialog{
+    width: auto;
+    max-width: 450px;
+    min-width: 200px;
+    min-height: 300px;
+    margin: 40px auto;
+    background-color: lightgrey;
+    border-radius: 15px solid;
+}
+
+.flashcard-modal-body{
+    position: relative;
+    padding: 40px 80px;
+}
+.term-input{
+    flex: 5 200px;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid;
+}
