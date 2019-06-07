@@ -18,6 +18,15 @@ ul {
     padding: 0;
     width: 200px;
     background-color: lightgrey;
+    height: 100%;
+}
+
+.front{
+  visibility: visible;
+}
+
+.back{
+  visibility: hidden;
 }
 
 /*.navlist {
@@ -79,6 +88,10 @@ ul {
     text-align: center;
 }
 
+.button-container{
+  display: flex;
+}
+
 .error-page {
     text-align: center;
     font-size: 32pt;
@@ -112,7 +125,7 @@ ul {
   display: none;
 }
 
-.modal-dialog{
+#modal-dialog{
   width: auto;
   max-width: 600px;
   min-width: 350px;
@@ -120,4 +133,34 @@ ul {
   margin: 40px auto;
   background-color: #fff;
   border-radius: 15px;
+}
+
+.modal-cancel-flashcard{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal-body{
+  padding: 20px;
+  position: relative;
+}
+
+.term-area{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.defintion-area{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 10px 0;
 }
