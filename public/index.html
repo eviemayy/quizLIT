@@ -35,22 +35,31 @@
       </article>
     </main>
 
+ <div class="button-container">
     <button type="button" class="create-new-card"><i class="far fa-plus-square"></i></button>
     <button type="button" class="create-new-set">Create New Flash Card Set</button>
     <button type="button" class="next-flash-card"><i class="fas fa-step-forward"></i></button>
+  </div>
 
 
     <div id="create-flashcard-modal" class="hidden">
       <div id="modal-dialog">
 
-      <div class="term">
-        <textarea class="term-input">Term</textarea>
-      </div>
-      <div class="defintion">
-        <textarea class="definition-input">Definition</textarea>
+      <p class="modal-header">Create new card:</p>
+
+      <div class="modal-body">
+        <div class="term-area">
+          <textarea class="term-input">Term</textarea>
+        </div>
+        <div class="defintion-area">
+          <textarea class="definition-input">Definition</textarea>
+        </div>
       </div>
 
-      <button type="button" class="modal-create-flashcard">Create Card</button>
+        <div class="modal-footer">
+          <button type="button" class="modal-create-flashcard">Create Card</button>
+        </div>
+
       <button type="button" class="modal-cancel-flashcard"><i class="far fa-times-circle"></i></<button>
 
       </div>
