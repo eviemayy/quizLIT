@@ -1,7 +1,26 @@
+
+
 var newCardButton = document.getElementsByClassName('create-new-card')[0];
 var modalCardWindow = document.getElementById('create-flashcard-modal');
 var modalTermInput = document.getElementsByClassName('term-input')[0];
 var modalDefInput = document.getElementsByClassName('definition-input')[0];
+
+var card = document.getElementsByClassName('flash-card')[0];
+var front = document.getElementsByClassName('front')[0];
+var back = document.getElementsByClassName('back')[0];
+
+//flip from front to back
+card.addEventListener('click', function(event) {
+  console.log("== card clicked");
+  if (front.style.visibility != "hidden"){
+      front.style.visibility = "hidden";
+      back.style.visibility = "visible";
+  }
+  else{
+      front.style.visibility = "visible";
+      back.style.visibility = "hidden";
+  }
+});
 
 //counter variables for clicking on the input boxes
 var counter1 = 1;
