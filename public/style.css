@@ -3,6 +3,7 @@ body{
     font-family: "Gill Sans", sans-serif;
     margin: 0;
 }
+
 .site-title {
     font-family: "Gill Sans", sans-serif;
     color:black;
@@ -106,12 +107,14 @@ ul {
 
 #create-flashcard-modal {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1010;
-  overflow: scroll;
+  z-index: auto;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+
 }
 
 .hidden{
@@ -128,13 +131,32 @@ ul {
     border-radius: 15px solid;
 }
 
+.modal-cancel-flashcard{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .flashcard-modal-body{
     position: relative;
     padding: 40px 80px;
 }
-.term-input{
+
+textarea.term-input{
     flex: 5 200px;
     padding: 10px;
     font-size: 18px;
     border: 1px solid;
+}
+
+textarea.defintion-input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
