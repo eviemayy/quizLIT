@@ -11,9 +11,23 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.get('/index.html', function (req, res) {
-    res.status(200).sendFile('./public/index.html');
+var cardData = require('./cardData');
+
+app.get('/', function (req, res) {
+    res.status(200).render('main');
 });
+
+/*app.get('/:setName', function (req, res, next) {
+  var name = req.params.setName.toLowerCase();
+  if (cardData[name]) {
+    res.status(200).render('main', cardData[name]);
+    // res.status(200).sendFile(
+    //   __dirname + '/public/people/' + person + '.html'
+    // );
+  } else {
+    next();
+  }
+});*/
 
 app.get('*', function(req, res) {
     res.status(404).render('404');
