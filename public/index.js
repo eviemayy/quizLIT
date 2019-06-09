@@ -92,14 +92,17 @@ addCourse.addEventListener('click', function(event) {
 
 ///Trying to create a new card with handlebars
 
+
+
 //insert a new Card
 function insertNewCard(front, back){
-  var cardTemplate = Handlebars.templates.card;
+
   var card1 = cardTemplate({
     term: front,
     definition: back
   });
 
+  var cardHTML = Handlebars.template.cardTemplate(card1);
   var container = document.getElementsByClassName('flash-card-container')[0];
   container.insertAdjacentHTML('beforeend', card1);
 }
