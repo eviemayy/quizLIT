@@ -147,16 +147,19 @@ ul {
     padding: 40px 80px;
 }
 
-textarea.term-input{
-    flex: 5 200px;
-    padding: 10px;
-    font-size: 18px;
-    border: 1px solid;
+.term-input{
+    display: flex;
+  align-items: center;
+  font-size: 15px;
+  margin: 10px 0;
 }
 
-textarea.defintion-input{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
+.definition-input{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    width: 300px;
+    height: 100px;
+    margin: 10px 0
 }
+
