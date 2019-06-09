@@ -3,7 +3,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 2094;
 
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -22,5 +22,5 @@ app.get('*', function(req, res) {
 });
 
 app.listen(port, function() {
-    console.log("== Server is listening on port 3000...");
+    console.log("== Server is listening on port", port);
 });
