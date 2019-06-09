@@ -90,20 +90,20 @@ addCourse.addEventListener('click', function(event) {
     console.log("Adding course");
 });
 
-// ///Trying to create a new card with handlebars
-//
-// //insert a new Card
-// function insertNewCard(front, back){
-//   var cardTemplate = Handlebars.templates.card;
-//   var card1 = cardTemplate({
-//     term: front,
-//     definition: back
-//   });
-//
-//   var container = document.getElementsByClassName('flash-card-container')[0];
-//   container.insertAdjacentHTML('beforeend', card1);
-// }
-//
+///Trying to create a new card with handlebars
+
+//insert a new Card
+function insertNewCard(front, back){
+  var cardTemplate = Handlebars.templates.card;
+  var card1 = cardTemplate({
+    term: front,
+    definition: back
+  });
+
+  var container = document.getElementsByClassName('flash-card-container')[0];
+  container.insertAdjacentHTML('beforeend', card1);
+}
+
 // //create new card
 // var createCardButton = document.getElementsByClassName('modal-create-flashcard')[0];
 // createCardButton.addEventListener('click', function(event){
