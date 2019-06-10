@@ -67,6 +67,7 @@ ul {
     --box-shadow-color: grey;
     box-shadow: 5px 10px var(--box-shadow-color);
     margin-bottom: 45px;
+    margin-top: 45px;
     align-items: center;
     width: 500px;
     height: 350px;
@@ -176,7 +177,9 @@ ul {
     width:60px;
     bottom: 10px;
     margin-right: 10px;
-    left: 50%;
+    left: 47%;
+    border-radius: 30px;
+    font-size: 20px;
     
 }   
 
@@ -186,6 +189,9 @@ height: 60px;
 width: 60px;
 bottom: 10px;
 right: 15%;
+background-color: #deeaee;
+border-radius: 30px;
+font-size: 24px;
 }
 
 .prev-flash-card-button{
@@ -194,4 +200,7 @@ right: 15%;
     width: 60px;
     bottom: 10px;
     left: 15%;
+    background-color: #deeaee;
+    border-radius:  30px;
+    font-size: 24px;
 }
