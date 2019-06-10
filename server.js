@@ -3,29 +3,27 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 
+var cardData = require('./cardData');
+
 var app = express();
 var port = process.env.PORT || 2094;
 
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-var cardData = require('./cardData');
-
-app.use(bodyParser.json());
-
-app.get('/', function (req, res) {
-  console.log('/ was entered in url');
+app.get('/', function (req, res, next) {
+  console.log("app.get '/'");
   res.status(200).render('homePage');
 });
 
 app.get('/:setName', function (req, res, next) {
-  console.log("/:setName");
   var name = req.params.setName.toLowerCase();
+  console.log("/:setName", name);
   if (cardData[name]) {
     res.status(200).render('cardPage', cardData[name]);
   } else {
