@@ -24,6 +24,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:setName', function (req, res, next) {
+  console.log("/:setName");
   var name = req.params.setName.toLowerCase();
   if (cardData[name]) {
     res.status(200).render('cardPage', cardData[name]);
@@ -32,14 +33,11 @@ app.get('/:setName', function (req, res, next) {
   }
 });
 
-app.get('*', function(req, res) {
-    res.status(404).render('404');
-});
-
 /*app.post('/:setName', function (req, res, next) {
 });*/
 
 app.post('/:setName/addCard', function (req, res, next) {
+  console.log("app.post");
   if (req.body && req.body.term && req.body.definition) {
     var name = req.params.setName.toLowerCase();
     console.log("req.body.term: ", req.body.term, "req.body.definition:", req.body.definition)
@@ -58,6 +56,11 @@ app.post('/:setName/addCard', function (req, res, next) {
       error: "Request body needs a term and definition."
     });
   }
+});
+
+app.get('*', function(req, res) {
+    console.log("404");
+    res.status(404).render('404');
 });
 
 app.listen(port, function() {
