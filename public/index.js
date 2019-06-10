@@ -89,7 +89,10 @@ function getSetNameFromURL() {
 }
 
 //insert a new Card
-function insertNewCard(term, definition){
+function insertNewCard(){
+
+    var term = document.getElementsByClassName('term-input')[0].value.trim();
+    var definition = document.getElementsByClassName('definition-input')[0].value.trim();
 
   if (!term || !definition) {
     alert("You must put a term and corresponding definition!");
@@ -104,9 +107,11 @@ function insertNewCard(term, definition){
     definition: definition
     };
     var requestBody = JSON.stringify(card1);
+    console.log("== requestBody:", requestBody);
 
     request.addEventListener('load', function (event) {
         if (event.target.status === 200) {
+            console.log("=== here");
           var newCardTemplate = Handlebars.templates.card;
           var newCardHTML = newCardTemplate({
             term: term,
@@ -114,16 +119,17 @@ function insertNewCard(term, definition){
           });
           var cardContainer = document.querySelector('.flash-card-container');
           cardContainer.insertAdjacentHTML('beforeend', newCardHTML);
+          console.log("=== and here");
         } else {
           var message = event.target.response;
           alert("Error storing card on server: " + message);
         }
-      });
+    });
   
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);
   
-      hideModal();
+      //hideModal();
   }
 //   var cardHTML = Handlebars.templates.card(card1);
 //   var container = document.getElementsByClassName('flash-card-container')[0];
@@ -134,8 +140,6 @@ function insertNewCard(term, definition){
 var createCardButton = document.getElementsByClassName('modal-create-flashcard')[0];
 createCardButton.addEventListener('click', function(event){
   console.log("==create card button clicked");
-  var front = document.getElementsByClassName('term-input')[0].value;
-  var back = document.getElementsByClassName('definition-input')[0].value;
-  insertNewCard(front, back);
+  insertNewCard();
   modalCardWindow.classList.toggle('hidden');
 });
