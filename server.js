@@ -1,6 +1,7 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 
 var app = express();
 var port = process.env.PORT || 2094;
@@ -9,9 +10,18 @@ var port = process.env.PORT || 2094;
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+app.use(bodyParser.json());
+
 app.use(express.static('public'));
 
 var cardData = require('./cardData');
+
+app.use(bodyParser.json());
+
+app.get('/', function (req, res) {
+  console.log('/ was entered in url');
+  res.status(200).render('homePage');
+});
 
 app.get('/:setName', function (req, res, next) {
   var name = req.params.setName.toLowerCase();
@@ -22,12 +32,32 @@ app.get('/:setName', function (req, res, next) {
   }
 });
 
-app.get('/', function (req, res) {
-    res.status(200).render('homePage');
-});
-
 app.get('*', function(req, res) {
     res.status(404).render('404');
+});
+
+/*app.post('/:setName', function (req, res, next) {
+});*/
+
+app.post('/:setName/addCard', function (req, res, next) {
+  if (req.body && req.body.term && req.body.definition) {
+    var name = req.params.setName.toLowerCase();
+    console.log("req.body.term: ", req.body.term, "req.body.definition:", req.body.definition)
+    if (cardData[name]) {
+      cardData[name].cards.push({
+        term: req.body.term,
+        definition: req.body.definition
+      });
+      console.log("== cards for", name, ":", cardData[name].cards);
+      res.status(200).send("Card successfully added");
+    } else {
+      next();
+    }
+  } else {
+    res.status(400).send({
+      error: "Request body needs a term and definition."
+    });
+  }
 });
 
 app.listen(port, function() {

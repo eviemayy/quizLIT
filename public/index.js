@@ -81,9 +81,14 @@ modalClassNameInput.addEventListener('click', function(event){
 
 ///Trying to create a new card with handlebars
 
-
+function getSetNameFromURL() {
+    var path = window.location.pathname;
+    var pathParts = path.split('/');
+    return pathParts[1];
+}
 
 //insert a new Card
+<<<<<<< HEAD
 function insertNewCard(front, back) {
     var cardContext = {
       term : front,
@@ -124,3 +129,59 @@ if (front && back) {
 //     + " </p>\n</article>\n";
 // },"useData":true});
 // })();
+=======
+function insertNewCard(){
+
+    var term = document.getElementsByClassName('term-input')[0].value.trim();
+    var definition = document.getElementsByClassName('definition-input')[0].value.trim();
+
+  if (!term || !definition) {
+    alert("You must put a term and corresponding definition!");
+  } else {
+
+    var request = new XMLHttpRequest();
+    var url = "/" + getSetNameFromURL() + '/addCard';
+    request.open('POST', url);
+
+    var card1 = {
+    term: term,
+    definition: definition
+    };
+    var requestBody = JSON.stringify(card1);
+    console.log("== requestBody:", requestBody);
+
+    request.addEventListener('load', function (event) {
+        if (event.target.status === 200) {
+            console.log("=== here");
+          var newCardTemplate = Handlebars.templates.card;
+          var newCardHTML = newCardTemplate({
+            term: term,
+            definition: definition
+          });
+          var cardContainer = document.querySelector('.flash-card-container');
+          cardContainer.insertAdjacentHTML('beforeend', newCardHTML);
+          console.log("=== and here");
+        } else {
+          var message = event.target.response;
+          alert("Error storing card on server: " + message);
+        }
+    });
+  
+      request.setRequestHeader('Content-Type', 'application/json');
+      request.send(requestBody);
+  
+      //hideModal();
+  }
+//   var cardHTML = Handlebars.templates.card(card1);
+//   var container = document.getElementsByClassName('flash-card-container')[0];
+//   container.insertAdjacentHTML('beforeend', card1);
+}
+
+//create new card
+var createCardButton = document.getElementsByClassName('modal-create-flashcard')[0];
+createCardButton.addEventListener('click', function(event){
+  console.log("==create card button clicked");
+  insertNewCard();
+  modalCardWindow.classList.toggle('hidden');
+});
+>>>>>>> origin/master
