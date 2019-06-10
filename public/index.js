@@ -170,11 +170,7 @@ function insertNewCard(){
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);
   
-      //hideModal();
   }
-//   var cardHTML = Handlebars.templates.card(card1);
-//   var container = document.getElementsByClassName('flash-card-container')[0];
-//   container.insertAdjacentHTML('beforeend', card1);
 }
 
 //create new card
