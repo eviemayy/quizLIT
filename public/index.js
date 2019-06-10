@@ -1,5 +1,4 @@
 
-
 var newCardButton = document.getElementsByClassName('create-new-card')[0];
 var modalCardWindow = document.getElementById('create-flashcard-modal');
 var modalTermInput = document.getElementsByClassName('term-input')[0];
