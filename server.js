@@ -1,6 +1,7 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 
 var app = express();
 var port = process.env.PORT || 2094;
@@ -8,6 +9,8 @@ var port = process.env.PORT || 2094;
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
+app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
@@ -34,13 +37,13 @@ app.get('*', function(req, res) {
 });*/
 
 app.post('/:setName/addCard', function (req, res, next) {
-  if (req.body && req.body.term && req.body.defintion) {
+  if (req.body && req.body.term && req.body.definition) {
     var name = req.params.setName.toLowerCase();
     console.log("req.body.term: ", req.body.term, "req.body.definition:", req.body.definition)
     if (cardData[name]) {
       cardData[name].cards.push({
         term: req.body.term,
-        defintion: req.body.defintion
+        definition: req.body.definition
       });
       console.log("== cards for", name, ":", cardData[name].cards);
       res.status(200).send("Card successfully added");
@@ -49,7 +52,7 @@ app.post('/:setName/addCard', function (req, res, next) {
     }
   } else {
     res.status(400).send({
-      error: "Request body needs a term and defintion."
+      error: "Request body needs a term and definition."
     });
   }
 });
