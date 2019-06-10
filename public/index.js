@@ -80,11 +80,6 @@ modalClassNameInput.addEventListener('click', function(event){
     }
 });
 
-var addCourse = document.getElementById('add-course');
-addCourse.addEventListener('click', function(event) {
-    console.log("Adding course");
-});
-
 ///Trying to create a new card with handlebars
 
 

@@ -17,17 +17,17 @@ app.get('/', function (req, res) {
     res.status(200).render('main');
 });
 
-/*app.get('/:setName', function (req, res, next) {
+app.get('/:setName', function (req, res, next) {
   var name = req.params.setName.toLowerCase();
   if (cardData[name]) {
-    res.status(200).render('main', cardData[name]);
+    res.status(200).render('cardPage', cardData[name]);
     // res.status(200).sendFile(
     //   __dirname + '/public/people/' + person + '.html'
     // );
   } else {
     next();
   }
-});*/
+});
 
 app.get('*', function(req, res) {
     res.status(404).render('404');
