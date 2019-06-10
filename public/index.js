@@ -63,11 +63,6 @@ var modalClassNameInput = document.getElementsByClassName('class-name-input')[0]
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set');
 var counter3 = 1;
 
-//opens up the set modal
-newSetButton.addEventListener('click', function(event){
-    modalSetWindow.classList.toggle('hidden');
-    modalSetWindow.value = 'Class Name';
-});
 
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set')[0];
 cancelSetButton.addEventListener('click', function(event){
