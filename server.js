@@ -1,6 +1,7 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 
 var app = express();
 var port = process.env.PORT || 2094;
@@ -13,6 +14,13 @@ app.use(express.static('public'));
 
 var cardData = require('./cardData');
 
+app.use(bodyParser.json());
+
+app.get('/', function (req, res) {
+  console.log('/ was entered in url');
+  res.status(200).render('homePage');
+});
+
 app.get('/:setName', function (req, res, next) {
   var name = req.params.setName.toLowerCase();
   if (cardData[name]) {
@@ -20,10 +28,6 @@ app.get('/:setName', function (req, res, next) {
   } else {
     next();
   }
-});
-
-app.get('/', function (req, res) {
-    res.status(200).render('homePage');
 });
 
 app.get('*', function(req, res) {
