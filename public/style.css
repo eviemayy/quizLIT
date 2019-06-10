@@ -34,7 +34,13 @@ ul {
     font-size: 24px;
     border: 2px black solid;
 }*/
+.navbar{
+    display: flex;
+    position: fixed;
+    left:0%;
+    margin-right: 5px;
 
+}
 .navitem a{
     text-decoration: none;
     color: black;
@@ -112,7 +118,7 @@ ul {
   border: 0;
   padding: 0;
   background-color: white;
-  left: 5%;
+  right: 1%;
   top: 25%;
   border: 1px solid;
 
