@@ -1,5 +1,4 @@
 
-
 var newCardButton = document.getElementsByClassName('create-new-card')[0];
 var modalCardWindow = document.getElementById('create-flashcard-modal');
 var modalTermInput = document.getElementsByClassName('term-input')[0];
@@ -85,27 +84,33 @@ modalClassNameInput.addEventListener('click', function(event){
 
 
 //insert a new Card
-function insertNewCard(front, back){
-
-  var card1 = cardTemplate({
-    term: front,
-    definition: back
-  });
-
-  var cardHTML = Handlebars.template.cardTemplate(card1);
-  var container = document.getElementsByClassName('flash-card-container')[0];
-  container.insertAdjacentHTML('beforeend', card1);
-}
+function insertNewCard(front, back) {
+    var cardContext = {
+      term : front,
+      definition : back
+    };
+  
+    var cardHTML = Handlebars.templates.card(cardContext);
+    var cardContainer = document.querySelector('main.flash-card-container');
+    cardContainer.insertAdjacentHTML('beforeend', cardHTML);
+  }
+  
 
 // //create new card
-// var createCardButton = document.getElementsByClassName('modal-create-flashcard')[0];
-// createCardButton.addEventListener('click', function(event){
-//   console.log("==create card button clicked");
-//   var front = document.getElementsByClassName('term-input')[0].value;
-//   var back = document.getElementsByClassName('definition-input')[0].value;
-//   insertNewCard(front, back);
-//   modalCardWindow.classList.toggle('hidden');
-// });
+var createCardButton = document.getElementsByClassName('modal-create-flashcard')[0];
+createCardButton.addEventListener('click', function(event){
+  console.log("==create card button clicked");
+  var front = document.getElementsByClassName('term-input')[0].value;
+  var back = document.getElementsByClassName('definition-input')[0].value;
+    
+if (front && back) {   
+    insertNewCard(front, back);
+    modalCardWindow.classList.toggle('hidden');
+  }
+  else {
+      alert("Wrong");
+  }
+});
 //
 // (function() {
 //   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
