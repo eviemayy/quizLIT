@@ -63,11 +63,6 @@ var modalClassNameInput = document.getElementsByClassName('class-name-input')[0]
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set');
 var counter3 = 1;
 
-//opens up the set modal
-newSetButton.addEventListener('click', function(event){
-    modalSetWindow.classList.toggle('hidden');
-    modalSetWindow.value = 'Class Name';
-});
 
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set')[0];
 cancelSetButton.addEventListener('click', function(event){
@@ -83,11 +78,6 @@ modalClassNameInput.addEventListener('click', function(event){
         modalClassNameInput.value = '';
         counter3 = 0;
     }
-});
-
-var addCourse = document.getElementById('add-course');
-addCourse.addEventListener('click', function(event) {
-    console.log("Adding course");
 });
 
 ///Trying to create a new card with handlebars
