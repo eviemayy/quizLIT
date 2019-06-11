@@ -26,7 +26,6 @@ ul {
     margin-left: 5%;
     margin-right: 5%
 }
-
 .navitem {
     display: flex;
     padding-left: 5%;
@@ -123,6 +122,18 @@ ul {
   top: 25%;
   border: 1px solid;
 
+}
+
+#create-new-set-modal{
+  position: fixed;
+  z-index: auto;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: white;
+  right: 0%;
+  top: 25%;
+  border: 1px solid;
 }
 
 .hidden{
