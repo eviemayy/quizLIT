@@ -124,6 +124,18 @@ ul {
 
 }
 
+#create-new-set-modal{
+  position: fixed;
+  z-index: auto;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: white;
+  right: 0%;
+  top: 25%;
+  border: 1px solid;
+}
+
 .hidden{
   display: none;
 }
@@ -183,7 +195,7 @@ ul {
     cursor:pointer;
     overflow: hidden;
     transition-duration: 0.4s;
-}   
+}
 
 .create-new-card:after{
     content: "";
