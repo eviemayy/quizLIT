@@ -4,6 +4,7 @@ var newCardButton = document.getElementsByClassName('create-new-card')[0];
 var modalCardWindow = document.getElementById('create-flashcard-modal');
 var modalTermInput = document.getElementsByClassName('term-input')[0];
 var modalDefInput = document.getElementsByClassName('definition-input')[0];
+var currentcard = 0;
 
 var card = document.getElementsByClassName('flash-card')[0];
 var front = document.getElementsByClassName('front')[0];
@@ -125,10 +126,10 @@ function insertNewCard(){
           alert("Error storing card on server: " + message);
         }
     });
-  
+
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);
-  
+
       //hideModal();
   }
 //   var cardHTML = Handlebars.templates.card(card1);
@@ -142,4 +143,18 @@ createCardButton.addEventListener('click', function(event){
   console.log("==create card button clicked");
   insertNewCard();
   modalCardWindow.classList.toggle('hidden');
+});
+
+//var data = require('./cardData');
+var nextCard = document.getElementsByClassName('next-flash-card-button')[0];
+nextCard.addEventListener('click', function(event){
+  console.log("==next button clicked");
+  // currentcard = currentcard + 1;
+  // front.innerHTML = data.cs290[currentcard].cards.term;
+  // console.log(data.cs290[currentcard].cards.term);
+});
+
+var lastCard = document.getElementsByClassName('prev-flash-card-button')[0];
+lastCard.addEventListener('click', function(event){
+  console.log("==prev button clicked");
 });
