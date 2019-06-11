@@ -26,7 +26,6 @@ ul {
     margin-left: 5%;
     margin-right: 5%
 }
-
 .navitem {
     display: flex;
     padding-left: 5%;
@@ -119,7 +118,7 @@ ul {
   border: 0;
   padding: 0;
   background-color: white;
-  right: 1%;
+  right: 0%;
   top: 25%;
   border: 1px solid;
 
@@ -172,26 +171,79 @@ ul {
 }
 
 .create-new-card{
-    position: fixed;
+    position:fixed;
     height: 60px;
-    width:60px;
+    width: 60px;
     bottom: 10px;
-    margin-right: 10px;
-    left: 47%;
+    right: 47%;
+    background-color: #a7d7e8;
     border-radius: 30px;
-    font-size: 20px;
-    
+    font-size: 24px;
+    border:none;
+    cursor:pointer;
+    overflow: hidden;
+    transition-duration: 0.4s;
 }   
 
+.create-new-card:after{
+    content: "";
+    background: #87bdd8;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+.create-new-card:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+
+.create-new-card:focus{
+    outline:none;
+}
+
 .next-flash-card-button{
-position:fixed;
-height: 60px;
-width: 60px;
-bottom: 10px;
-right: 15%;
-background-color: #deeaee;
-border-radius: 30px;
-font-size: 24px;
+    position:fixed;
+    height: 60px;
+    width: 60px;
+    bottom: 10px;
+    right: 15%;
+    background-color: #a7d7e8;
+    border-radius: 30px;
+    font-size: 24px;
+    border:none;
+    cursor:pointer;
+    overflow: hidden;
+    transition-duration: 0.4s;
+}
+.next-flash-card-button:after{
+    content: "";
+    background: #87bdd8;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+.next-flash-card-button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+.next-flash-card-button:focus{
+    outline:none;
 }
 
 .prev-flash-card-button{
@@ -200,7 +252,33 @@ font-size: 24px;
     width: 60px;
     bottom: 10px;
     left: 15%;
-    background-color: #deeaee;
+    background-color: #a7d7e8;
+    border:none;
     border-radius:  30px;
     font-size: 24px;
+    cursor:pointer;
+    overflow: hidden;
+    transition-duration: 0.4s;
+}
+.prev-flash-card-button:after{
+    content: "";
+    background: #87bdd8;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+.prev-flash-card-button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+.prev-flash-card-button{
+    outline:none;
 }
