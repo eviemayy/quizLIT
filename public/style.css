@@ -294,3 +294,7 @@ ul {
 .prev-flash-card-button{
     outline:none;
 }
+
+.title-container{
+    text-align: center;
+}
