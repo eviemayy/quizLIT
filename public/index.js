@@ -4,9 +4,9 @@ var modalCardWindow = document.getElementById('create-flashcard-modal');
 var modalTermInput = document.getElementsByClassName('term-input')[0];
 var modalDefInput = document.getElementsByClassName('definition-input')[0];
 
-var card = document.getElementsByClassName('flash-card')[0];
-var front = document.getElementsByClassName('front')[0];
-var back = document.getElementsByClassName('back')[0];
+var card = document.querySelector('.flash-card');
+var front = document.querySelector('.front');
+var back = document.querySelector('.back');
 
 //flip from front to back
 card.addEventListener('click', function(event) {
@@ -79,9 +79,6 @@ modalClassNameInput.addEventListener('click', function(event){
     }
 });
 
-///Trying to create a new card with handlebars
-
-
 
 //insert a new Card
 function insertNewCard(front, back) {
@@ -89,11 +86,11 @@ function insertNewCard(front, back) {
       term : front,
       definition : back
     };
-  
+
     var cardHTML = Handlebars.templates.card(cardContext);
     var cardContainer = document.querySelector('main.flash-card-container');
     cardContainer.insertAdjacentHTML('beforeend', cardHTML);
-  }
+}
   
 
 // //create new card
@@ -108,6 +105,6 @@ if (front && back) {
     modalCardWindow.classList.toggle('hidden');
   }
   else {
-      alert("Wrong");
+      alert("You must add text in both boxes!");
   }
 });

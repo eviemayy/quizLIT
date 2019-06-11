@@ -13,6 +13,7 @@ app.set('view engine', 'handlebars');
 
 app.get('/', function (req, res) {
   res.status(200).render('cardPage');
+  res.status(200).render('homePage');
 });
 
 app.get('/:setName', function (req, res, next) {
