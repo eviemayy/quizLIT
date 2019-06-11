@@ -5,13 +5,15 @@ var exphbs = require('express-handlebars');
 var app = express();
 var port = process.env.PORT || 2094;
 
+var cardData = require('./cardData');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-app.use(express.static('public'));
 
-var cardData = require('./cardData');
+app.get('/', function (req, res) {
+  res.status(200).render('cardPage');
+});
 
 app.get('/:setName', function (req, res, next) {
   var name = req.params.setName.toLowerCase();
@@ -22,9 +24,7 @@ app.get('/:setName', function (req, res, next) {
   }
 });
 
-app.get('/', function (req, res) {
-    res.status(200).render('homePage');
-});
+app.use(express.static('public'));
 
 app.get('*', function(req, res) {
     res.status(404).render('404');
