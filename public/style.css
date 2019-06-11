@@ -195,7 +195,7 @@ ul {
     cursor:pointer;
     overflow: hidden;
     transition-duration: 0.4s;
-}
+}   
 
 .create-new-card:after{
     content: "";
