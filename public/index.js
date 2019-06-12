@@ -55,16 +55,16 @@ prevButton.addEventListener('click', function(event) {
 //if (cards) {}
 card.addEventListener('click', function(event) {
   console.log("==cards array:", cards[current]);
-  front.classList.toggle('hidden');
-  back.classList.toggle('hidden');
-  // if (front.style.visibility != "hidden"){
-  //     front.style.visibility = "hidden";
-  //     back.style.visibility = "visible";
-  //   }
-  //   else{
-  //     front.style.visibility = "visible";
-  //     back.style.visibility = "hidden";
-  //   }
+  // front.classList.toggle('hidden');
+  // back.classList.toggle('hidden');
+  if (front.style.visibility != "hidden"){
+      front.style.visibility = "hidden";
+      back.style.visibility = "visible";
+    }
+    else{
+      front.style.visibility = "visible";
+      back.style.visibility = "hidden";
+    }
   });
 
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set')[0];
