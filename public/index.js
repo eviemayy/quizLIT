@@ -8,6 +8,7 @@ var newSetButton = document.getElementsByClassName('newSet')[0];
 var navigationList = document.getElementsByClassName('navlist')[0];
 current = 0;
 
+
 var card = document.querySelector('.flash-card');
 var cards = [] //array of cards?
 var front = document.querySelector('.front').innerHTML;
@@ -99,7 +100,7 @@ var counter2 = 1;
 if (newCardButton){
   newCardButton.addEventListener('click', function(event){
     document.getElementsByClassName('term-input')[0].value = "Term";
-    document.getElementsByClassName('definition-input')[0].value = "Value";
+    document.getElementsByClassName('definition-input')[0].value = "Definition";
       modalCardWindow.classList.toggle('hidden');
       counter1 = 1;
       counter2 = 1;
