@@ -6,13 +6,13 @@ var modalDefInput = document.getElementsByClassName('definition-input')[0];
 var modalSetWindow = document.getElementById('create-new-set-modal');
 var newSetButton = document.getElementsByClassName('newSet')[0];
 var navigationList = document.getElementsByClassName('navlist')[0];
-current = 0;
+var current = 0;
 
 
 var card = document.querySelector('.flash-card');
 var cards = [] //array of cards?
-var front = document.querySelector('.front').innerHTML;
-var back = document.querySelector('.back').innerHTML;
+var front = document.querySelector('.front');
+var back = document.querySelector('.back');
 
 //this funtion should return the set name from the url.
 function getSetfromURL(){
@@ -43,14 +43,14 @@ card.addEventListener('click', function(event) {
   console.log("==cards[current].Definition:", cards[current].definition);
   var term = cards[current].term;
   var def = cards[current].definition;
-  if (front.style.visibility != "hidden"){
-      front.style.visibility = "hidden";
-      back.style.visibility = "visible";
-    }
-    else{
-      front.style.visibility = "visible";
-      back.style.visibility = "hidden";
-    }
+  // if (front.style.visibility != "hidden"){
+  //     front.style.visibility = "hidden";
+  //     back.style.visibility = "visible";
+  //   }
+  //   else{
+  //     front.style.visibility = "visible";
+  //     back.style.visibility = "hidden";
+  //   }
   });
 }
 
