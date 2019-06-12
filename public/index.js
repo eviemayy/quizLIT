@@ -27,45 +27,53 @@ function getSetfromURL(){
 }
 
 var nextButton = document.getElementsByClassName('next-flash-card-button')[0];
-nextButton.addEventListener('click', function(event) {
-  if(current==cards.length-1){
-    current = 0;
-  }
-  else{
-    current = current + 1;
-  }
-  document.querySelector('.front').innerHTML = cards[current].term;
-  document.querySelector('.back').innerHTML = cards[current].definition;
-});
+  if (nextButton) {
+    nextButton.addEventListener('click', function(event) {
+    if(current==cards.length-1){
+      current = 0;
+    }
+    else{
+      current = current + 1;
+    }
+    document.querySelector('.front').innerHTML = cards[current].term;
+    document.querySelector('.back').innerHTML = cards[current].definition;
+  });
+}
+
 
 var prevButton = document.getElementsByClassName('prev-flash-card-button')[0];
-prevButton.addEventListener('click', function(event) {
-  if(current==0){
-    current = cards.length-1;
-  }
-  else{
-    current = current - 1;
-  }
-  document.querySelector('.front').innerHTML = cards[current].term;
-  document.querySelector('.back').innerHTML = cards[current].definition;
-});
+    if (prevButton) {
+    prevButton.addEventListener('click', function(event) {
+      if(current==0){
+        current = cards.length-1;
+    }
+    else{
+      current = current - 1;
+    }
+    document.querySelector('.front').innerHTML = cards[current].term;
+    document.querySelector('.back').innerHTML = cards[current].definition;
+  });
+}
+
 
 //flip from front to back
 
-//if (cards) {}
-card.addEventListener('click', function(event) {
-  console.log("==cards array:", cards[current]);
-  // front.classList.toggle('hidden');
-  // back.classList.toggle('hidden');
-  if (front.style.visibility != "hidden"){
-      front.style.visibility = "hidden";
-      back.style.visibility = "visible";
-    }
-    else{
-      front.style.visibility = "visible";
-      back.style.visibility = "hidden";
-    }
-  });
+if (cards) {
+    card.addEventListener('click', function(event) {
+    console.log("==cards array:", cards[current]);
+    // front.classList.toggle('hidden');
+    // back.classList.toggle('hidden');
+    if (front.style.visibility != "hidden"){
+        front.style.visibility = "hidden";
+        back.style.visibility = "visible";
+      }
+      else{
+        front.style.visibility = "visible";
+        back.style.visibility = "hidden";
+      }
+    });
+}
+
 
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set')[0];
 var createSetButton = document.getElementsByClassName('modal-create-set')[0];
@@ -105,9 +113,33 @@ createSetButton.addEventListener('click', function(event){
 });
 
 function insertNewSet(setName){
-  var setHTML = '<li class="navitem"><a href="' + setName + '">' + setName + '</a></li>';
-  console.log("==html:", setHTML);
-  navigationList.insertAdjacentHTML('afterbegin', setHTML);
+  // var setHTML = '<li class="navitem"><a href="' + setName + '">' + setName + '</a></li>';
+  // console.log("==html:", setHTML);
+  // navigationList.insertAdjacentHTML('afterbegin', setHTML);
+
+  var postRequest = new XMLHttpRequest();
+  var requestURL = '/' + getSetfromURL();
+  postRequest.open('POST', requestURL);
+
+  var requestBody = JSON.stringify({
+    set: setName
+  });
+
+  postRequest.addEventListener('load', function (event) {
+    if (event.target.status === 200) {
+      var cardTemplate = Handlebars.templates.card;
+      var newCardHTML = cardTemplate({
+        set: setName
+      });
+  
+      navigationList.insertAdjacentHTML('afterbegin', newCardHTML);
+    } else {
+      alert("Error storing photo: " + event.target.response);
+    }
+  });
+
+  postRequest.setRequestHeader('Content-Type', 'application/json');
+  postRequest.send(requestBody);
 }
 
 
