@@ -36,25 +36,25 @@ app.get('/home', function (req, res) {
 app.get('/:setName', function (req, res, next) {
   var name = req.params.setName.toLowerCase();
   //console.log("==url name", name);
-  if (cardData[name]) {
-    res.status(200).render('cardPage', cardData[name]);
-  } else {
-    next();
-  }
+  // if (cardData[name]) {
+  //   res.status(200).render('cardPage', cardData[name]);
+  // } else {
+  //   next();
+  // }
 
-  // var collection = db.collection('card');
-  // collection.find({ set: name }).toArray(function (err, card) {
-  //   if (err) {
-  //     res.status(500).send({
-  //       error: "Error fetching card from DB"
-  //     });
-  //   } else if (card.length < 1) {
-  //     next();
-  //   } else {
-  //     console.log("== card:", card);
-  //     res.status(200).render('cardPage', card[0]);
-  //   }
-  // });
+  var collection = db.collection('card');
+  collection.find({ set: name }).toArray(function (err, card) {
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching card from DB"
+      });
+    } else if (card.length < 1) {
+      next();
+    } else {
+      console.log("== card:", card);
+      res.status(200).render('cardPage', card[0]);
+    }
+  });
 
 });
 
