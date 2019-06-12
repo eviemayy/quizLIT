@@ -120,12 +120,7 @@ var cancelSetButton = document.getElementsByClassName('modal-cancel-set');
 var counter3 = 1;
 
 
-var cancelSetButton = document.getElementsByClassName('modal-cancel-set')[0];
-cancelSetButton.addEventListener('click', function(event){
-    modalSetWindow.classList.toggle('hidden');
-    modalClassNameInput.value = 'ClassName';
-    counter3 = 1;
-});
+
 
 
 //clears the input boxes of prompts when user clicks on the box
