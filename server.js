@@ -16,8 +16,13 @@ app.get('/', function (req, res) {
   res.status(200).render('homePage');
 });
 
+app.get('/home', function (req, res) {
+  res.status(200).render('homePage');
+});
+
 app.get('/:setName', function (req, res, next) {
   var name = req.params.setName.toLowerCase();
+  console.log("==url name", name);
   if (cardData[name]) {
     res.status(200).render('cardPage', cardData[name]);
   } else {

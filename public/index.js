@@ -11,6 +11,14 @@ var card = document.querySelector('.flash-card'); //array of cards?
 var front = document.querySelector('.front');
 var back = document.querySelector('.back');
 
+//this funtion should return the set name from the url.
+function getSetfromURL(){
+  console.log("entered get set url");
+  var path = window.location.pathname;
+  var pathParts = path.split('/');
+  return pathParts[1];
+}
+
 //flip from front to back
 card.addEventListener('click', function(event) {
   console.log("== card clicked");
@@ -53,7 +61,7 @@ createSetButton.addEventListener('click', function(event){
 });
 
 function insertNewSet(setName){
-  var setHTML = '<li class="navitem"><a href="#">' + setName + '</a></li>';
+  var setHTML = '<li class="navitem"><a href="' + setName + '">' + setName + '</a></li>';
   console.log("==html:", setHTML);
   navigationList.insertAdjacentHTML('afterbegin', setHTML);
 }
@@ -90,21 +98,7 @@ modalTermInput.addEventListener('click', function(event){
     }
 });
 
-modalTermInput.addEventListener('focus', function(event){
-  if(counter1 == 1){
-      modalTermInput.value = '';
-      counter1 = 0;
-  }
-});
-
 modalDefInput.addEventListener('click', function(event){
-  if(counter2 == 1){
-      modalDefInput.value = '';
-      counter2 = 0;
-  }
-});
-
-modalDefInput.addEventListener('focus', function(event){
     if(counter2 == 1){
         modalDefInput.value = '';
         counter2 = 0;
@@ -143,7 +137,6 @@ function insertNewCard(front, back) {
     };
 
     var cardHTML = Handlebars.templates.card(cardContext);
-    cardHTML.className += 'flash-card';
     var cardContainer = document.querySelector('main.flash-card-container');
     cardContainer.insertAdjacentHTML('beforeend', cardHTML);
 }
