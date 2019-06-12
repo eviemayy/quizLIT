@@ -58,7 +58,7 @@ var prevButton = document.getElementsByClassName('prev-flash-card-button')[0];
 
 //flip from front to back
 
-if (cards) {
+if (card) {
     card.addEventListener('click', function(event) {
     console.log("==cards array:", cards[current]);
     // front.classList.toggle('hidden');
@@ -117,29 +117,6 @@ function insertNewSet(setName){
   // console.log("==html:", setHTML);
   // navigationList.insertAdjacentHTML('afterbegin', setHTML);
 
-  var postRequest = new XMLHttpRequest();
-  var requestURL = '/' + getSetfromURL();
-  postRequest.open('POST', requestURL);
-
-  var requestBody = JSON.stringify({
-    set: setName
-  });
-
-  postRequest.addEventListener('load', function (event) {
-    if (event.target.status === 200) {
-      var cardTemplate = Handlebars.templates.card;
-      var newCardHTML = cardTemplate({
-        set: setName
-      });
-  
-      navigationList.insertAdjacentHTML('afterbegin', newCardHTML);
-    } else {
-      alert("Error storing photo: " + event.target.response);
-    }
-  });
-
-  postRequest.setRequestHeader('Content-Type', 'application/json');
-  postRequest.send(requestBody);
 }
 
 
@@ -227,12 +204,41 @@ modalClassNameInput.addEventListener('click', function(event){
 
 //insert a new Card
 function insertNewCard(front, back) {
+
     var cardContext = {
       term : front,
       definition : back
     };
 
     cards.push(cardContext);
+
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/' + 'cs290' + '/addCard';
+    postRequest.open('POST', requestURL);
+    console.log(requestURL);
+  
+    var requestBody = JSON.stringify({
+      term: front,
+      definition: back
+    });
+  
+    postRequest.addEventListener('load', function (event) {
+      if (event.target.status === 200) {
+        var cardTemplate = Handlebars.templates.card;
+        var newCardHTML = cardTemplate({
+          term: front,
+          definition: back
+        });
+    
+        //navigationList.insertAdjacentHTML('afterbegin', newCardHTML);
+      } else {
+        alert("Error storing flashcard: " + event.target.response);
+      }
+    });
+  
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+    postRequest.send(requestBody);
+
     // var cardHTML = Handlebars.templates.card(cardContext);
     // var cardContainer = document.querySelector('main.flash-card-container');
     // cardContainer.insertAdjacentHTML('beforeend', cardHTML);

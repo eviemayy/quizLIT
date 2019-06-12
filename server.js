@@ -41,7 +41,7 @@ app.get('/:setName', function (req, res, next) {
   // } else {
   //   next();
   // }
-
+  //console.log(card.length);
   var collection = db.collection('card');
   collection.find({ set: name }).toArray(function (err, card) {
     if (err) {
@@ -49,8 +49,11 @@ app.get('/:setName', function (req, res, next) {
         error: "Error fetching card from DB"
       });
     } else if (card.length < 1) {
+      console.log("length: ",card.length);
+      console.log("test");
       next();
     } else {
+      console.log(collection[0]);
       console.log("== card:", card);
       res.status(200).render('cardPage', card[0]);
     }
@@ -58,18 +61,50 @@ app.get('/:setName', function (req, res, next) {
 
 });
 
+app.post('/:setName/addCard', function(req, res, next) {
+  var name = req.params.setName.toLowerCase();
+  if (req.body && req.body.term && req.body.definition) {
+      var collection = db.collection('card');
+      var card = {
+        term: req.body.term,
+        definition: req.body.definition
+      };
+      collection.updateOne (
+        {set: name},
+        {$push: {cards: card} },
+        function (err, result) {
+          if (err) {
+            res.status(500).send({
+              error: "Error inserting card into the database"
+            });
+          } else {
+              console.log("== Update result: ", result);
+              if (result.matchedCount > 0) {
+                res.status(200).send("Success");
+              } else {
+                next();
+            }
+          }
+        }
+      );
+  }   else {
+          res.status(400).send("Request needs a body with term and definition");
+  }
+});
 app.use(express.static('public'));
+
+
 
 app.get('*', function(req, res) {
     res.status(404).render('404');
 });
 
-// MongoClient.connect(mongoUrl, { useNewUrlParser: true }, function (err, client) {
-//   if (err) {
-//     throw err;
-//   }
-//   db = client.db(mongoDBName);
+MongoClient.connect(mongoUrl, { useNewUrlParser: true }, function (err, client) {
+  if (err) {
+    throw err;
+  }
+  db = client.db(mongoDBName);
   app.listen(port, function() {
       console.log("== Server is listening on port", port);
   });
-//});
+});
