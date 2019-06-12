@@ -6,10 +6,12 @@ var modalDefInput = document.getElementsByClassName('definition-input')[0];
 var modalSetWindow = document.getElementById('create-new-set-modal');
 var newSetButton = document.getElementsByClassName('newSet')[0];
 var navigationList = document.getElementsByClassName('navlist')[0];
+current = 0;
 
-var card = document.querySelector('.flash-card'); //array of cards?
-var front = document.querySelector('.front');
-var back = document.querySelector('.back');
+var card = document.querySelector('.flash-card');
+var cards = [] //array of cards?
+var front = document.querySelector('.front').innerHTML;
+var back = document.querySelector('.back').innerHTML;
 
 //this funtion should return the set name from the url.
 function getSetfromURL(){
@@ -19,12 +21,28 @@ function getSetfromURL(){
   return pathParts[1];
 }
 
+// var nextButton = document.getElementsByClassName('next-flash-card-button');
+// nextButton.addEventListener('click', function(event) {
+//   if(current==cards.length){
+//     current = 0;
+//   }
+//   else{
+//     current = current + 1;
+//   }
+//   var frontHTML = '<p class="front term">' + cards[current].term + '</p>';
+//   var backHTML = '<p class="back definition">' + cards[current].term +  '</p>';
+// });
+
 //flip from front to back
+
 if (card){
-  card.addEventListener('click', function(event) {
-    console.log("== card clicked");
-    console.log("== card", card);
-    if (front.style.visibility != "hidden"){
+card.addEventListener('click', function(event) {
+  console.log("==cards array:", cards[current]);
+  console.log("==cards[current].term:", cards[current].term);
+  console.log("==cards[current].Definition:", cards[current].definition);
+  var term = cards[current].term;
+  var def = cards[current].definition;
+  if (front.style.visibility != "hidden"){
       front.style.visibility = "hidden";
       back.style.visibility = "visible";
     }
@@ -147,6 +165,7 @@ function insertNewCard(front, back) {
       definition : back
     };
 
+    cards.push(cardContext);
     var cardHTML = Handlebars.templates.card(cardContext);
     var cardContainer = document.querySelector('main.flash-card-container');
     cardContainer.insertAdjacentHTML('beforeend', cardHTML);
