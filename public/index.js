@@ -90,7 +90,21 @@ modalTermInput.addEventListener('click', function(event){
     }
 });
 
+modalTermInput.addEventListener('focus', function(event){
+  if(counter1 == 1){
+      modalTermInput.value = '';
+      counter1 = 0;
+  }
+});
+
 modalDefInput.addEventListener('click', function(event){
+  if(counter2 == 1){
+      modalDefInput.value = '';
+      counter2 = 0;
+  }
+});
+
+modalDefInput.addEventListener('focus', function(event){
     if(counter2 == 1){
         modalDefInput.value = '';
         counter2 = 0;
@@ -129,6 +143,7 @@ function insertNewCard(front, back) {
     };
 
     var cardHTML = Handlebars.templates.card(cardContext);
+    cardHTML.className += 'flash-card';
     var cardContainer = document.querySelector('main.flash-card-container');
     cardContainer.insertAdjacentHTML('beforeend', cardHTML);
 }
