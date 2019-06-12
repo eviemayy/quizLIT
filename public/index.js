@@ -34,6 +34,8 @@ function getSetfromURL(){
 // });
 
 //flip from front to back
+
+if (card){
 card.addEventListener('click', function(event) {
   console.log("==cards array:", cards[current]);
   console.log("==cards[current].term:", cards[current].term);
@@ -43,24 +45,30 @@ card.addEventListener('click', function(event) {
   if (front.style.visibility != "hidden"){
       front.style.visibility = "hidden";
       back.style.visibility = "visible";
-  }
-  else{
+    }
+    else{
       front.style.visibility = "visible";
       back.style.visibility = "hidden";
-  }
-});
+    }
+  });
+}
 
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set')[0];
 var createSetButton = document.getElementsByClassName('modal-create-set')[0];
-newSetButton.addEventListener('click', function(event){
-  console.log("new set button clicked");
-  modalSetWindow.classList.toggle('hidden');
-  document.getElementsByClassName('class-name-input')[0].value = "Class Name";
-});
 
-cancelSetButton.addEventListener('click', function(event){
-  modalSetWindow.classList.toggle('hidden');
-});
+if (newSetButton){
+  newSetButton.addEventListener('click', function(event){
+    console.log("new set button clicked");
+    modalSetWindow.classList.toggle('hidden');
+    document.getElementsByClassName('class-name-input')[0].value = "Class Name";
+  });
+}
+
+if (cancelSetButton){
+  cancelSetButton.addEventListener('click', function(event){
+    modalSetWindow.classList.toggle('hidden');
+  });
+}
 
 createSetButton.addEventListener('click', function(event){
   console.log("==create set button clicked");
@@ -88,41 +96,48 @@ var counter1 = 1;
 var counter2 = 1;
 
 //opens up the term modal
-newCardButton.addEventListener('click', function(event){
-  document.getElementsByClassName('term-input')[0].value = "Term";
-  document.getElementsByClassName('definition-input')[0].value = "Value";
-    modalCardWindow.classList.toggle('hidden');
-    counter1 =1;
-    counter2 = 1;
-});
+if (newCardButton){
+  newCardButton.addEventListener('click', function(event){
+    document.getElementsByClassName('term-input')[0].value = "Term";
+    document.getElementsByClassName('definition-input')[0].value = "Value";
+      modalCardWindow.classList.toggle('hidden');
+      counter1 = 1;
+      counter2 = 1;
+  });
+}
 
 //closes the modal and reenters term and definition 'prompt'
 var cancelCardButton = document.getElementsByClassName('modal-cancel-flashcard')[0];
-cancelCardButton.addEventListener('click', function(event){
-    document.getElementsByClassName('term-input')[0].value = " ";
-    document.getElementsByClassName('definition-input')[0].value = " ";
-    modalCardWindow.classList.toggle('hidden');
-    // modalTermInput.value = 'Term';
-    // modalDefInput.value = 'Definition';
-    counter1 = 1;
-    counter2 = 1;
-});
-
+if (cancelCardButton){
+  cancelCardButton.addEventListener('click', function(event){
+      document.getElementsByClassName('term-input')[0].value = " ";
+      document.getElementsByClassName('definition-input')[0].value = " ";
+      modalCardWindow.classList.toggle('hidden');
+      // modalTermInput.value = 'Term';
+      // modalDefInput.value = 'Definition';
+      counter1 = 1;
+      counter2 = 1;
+  });
+}
 
 //clears the input boxes of prompts when user clicks on the box
-modalTermInput.addEventListener('click', function(event){
+if (modalTermInput){
+  modalTermInput.addEventListener('click', function(event){
     if(counter1 == 1){
         modalTermInput.value = '';
         counter1 = 0;
     }
-});
+  });
+}
 
-modalDefInput.addEventListener('click', function(event){
-    if(counter2 == 1){
-        modalDefInput.value = '';
-        counter2 = 0;
-    }
-});
+if (modalDefInput){
+  modalDefInput.addEventListener('click', function(event){
+      if(counter2 == 1){
+          modalDefInput.value = '';
+          counter2 = 0;
+      }
+  });
+}
 
 var newSetButton = document.getElementsByClassName('create-new-set')[0];
 var modalSetWindow = document.getElementById('create-new-set-modal');
@@ -159,19 +174,21 @@ function insertNewCard(front, back) {
 
 // //create new card
 var createCardButton = document.getElementsByClassName('modal-create-flashcard')[0];
-createCardButton.addEventListener('click', function(event){
-  console.log("==create card button clicked");
-  var front = document.getElementsByClassName('term-input')[0].value;
-  var back = document.getElementsByClassName('definition-input')[0].value;
+if (createCardButton){
+  createCardButton.addEventListener('click', function(event){
+    console.log("==create card button clicked");
+    var front = document.getElementsByClassName('term-input')[0].value;
+    var back = document.getElementsByClassName('definition-input')[0].value;
 
-if (front=="Term" || back == "Value") {
-  alert("You must add text in both boxes!");
+  if (front=="Term" || back == "Value") {
+    alert("You must add text in both boxes!");
+  }
+  else if(front && back) {
+      insertNewCard(front, back);
+      modalCardWindow.classList.toggle('hidden');
+    }
+    else {
+        alert("You must add text in both boxes!");
+    }
+  });
 }
-else if(front && back) {
-    insertNewCard(front, back);
-    modalCardWindow.classList.toggle('hidden');
-  }
-  else {
-      alert("You must add text in both boxes!");
-  }
-});
