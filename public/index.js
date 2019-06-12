@@ -22,27 +22,37 @@ function getSetfromURL(){
   return pathParts[1];
 }
 
-// var nextButton = document.getElementsByClassName('next-flash-card-button');
-// nextButton.addEventListener('click', function(event) {
-//   if(current==cards.length){
-//     current = 0;
-//   }
-//   else{
-//     current = current + 1;
-//   }
-//   var frontHTML = '<p class="front term">' + cards[current].term + '</p>';
-//   var backHTML = '<p class="back definition">' + cards[current].term +  '</p>';
-// });
+var nextButton = document.getElementsByClassName('next-flash-card-button')[0];
+nextButton.addEventListener('click', function(event) {
+  if(current==cards.length-1){
+    current = 0;
+  }
+  else{
+    current = current + 1;
+  }
+  document.querySelector('.front').innerHTML = cards[current].term;
+  document.querySelector('.back').innerHTML = cards[current].definition;
+});
+
+var prevButton = document.getElementsByClassName('prev-flash-card-button')[0];
+prevButton.addEventListener('click', function(event) {
+  if(current==0){
+    current = cards.length-1;
+  }
+  else{
+    current = current - 1;
+  }
+  document.querySelector('.front').innerHTML = cards[current].term;
+  document.querySelector('.back').innerHTML = cards[current].definition;
+});
 
 //flip from front to back
 
-if (card){
+//if (cards) {}
 card.addEventListener('click', function(event) {
   console.log("==cards array:", cards[current]);
-  console.log("==cards[current].term:", cards[current].term);
-  console.log("==cards[current].Definition:", cards[current].definition);
-  var term = cards[current].term;
-  var def = cards[current].definition;
+  front.classList.toggle('hidden');
+  back.classList.toggle('hidden');
   // if (front.style.visibility != "hidden"){
   //     front.style.visibility = "hidden";
   //     back.style.visibility = "visible";
@@ -52,14 +62,13 @@ card.addEventListener('click', function(event) {
   //     back.style.visibility = "hidden";
   //   }
   });
-}
 
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set')[0];
 var createSetButton = document.getElementsByClassName('modal-create-set')[0];
 
 if (newSetButton){
   newSetButton.addEventListener('click', function(event){
-    console.log("new set button clicked");
+    //console.log("new set button clicked");
     modalSetWindow.classList.toggle('hidden');
     document.getElementsByClassName('class-name-input')[0].value = "Class Name";
   });
@@ -167,9 +176,9 @@ function insertNewCard(front, back) {
     };
 
     cards.push(cardContext);
-    var cardHTML = Handlebars.templates.card(cardContext);
-    var cardContainer = document.querySelector('main.flash-card-container');
-    cardContainer.insertAdjacentHTML('beforeend', cardHTML);
+    // var cardHTML = Handlebars.templates.card(cardContext);
+    // var cardContainer = document.querySelector('main.flash-card-container');
+    // cardContainer.insertAdjacentHTML('beforeend', cardHTML);
 }
 
 
