@@ -96,7 +96,10 @@ ul {
 
 .error-page {
     text-align: center;
-    font-size: 32pt;
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 2px black;
+    margin-top: 160px;
 }
 
 #next-flash-card-button {
@@ -151,6 +154,12 @@ ul {
     border-radius: 15px solid;
 }
 
+.modal-create-flashcard{
+    position:absolute;
+    right: 130px;
+    top: 255px;
+
+}
 .modal-cancel-flashcard{
   position: absolute;
   right: 10px;
@@ -175,6 +184,12 @@ ul {
     margin: 40px auto;
     background-color: #fa7006;
     border-radius: 15px solid;
+}
+
+.modal-create-set{
+    position:absolute;
+    top:135px;
+    right:55px;
 }
 
 .modal-cancel-set{
@@ -323,4 +338,8 @@ ul {
 
 .title-container{
     text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+    font-size: 25px;
+    margin-top: 160px;
 }

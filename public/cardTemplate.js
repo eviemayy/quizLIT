@@ -7,6 +7,6 @@ templates['card'] = template({"compiler":[7,">= 4.0.0"],"main":function(containe
     + alias4(((helper = (helper = helpers.term || (depth0 != null ? depth0.term : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"term","hash":{},"data":data}) : helper)))
     + "</p>\r\n    <p class=\"back definition hidden\"> "
     + alias4(((helper = (helper = helpers.definition || (depth0 != null ? depth0.definition : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"definition","hash":{},"data":data}) : helper)))
-    + " </p>\n</article>\n";
+    + " </p>\r\n</article>\r\n";
 },"useData":true});
 })();
