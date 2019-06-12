@@ -154,6 +154,12 @@ ul {
     border-radius: 15px solid;
 }
 
+.modal-create-flashcard{
+    position:absolute;
+    right: 130px;
+    top: 255px;
+
+}
 .modal-cancel-flashcard{
   position: absolute;
   right: 10px;
@@ -178,6 +184,12 @@ ul {
     margin: 40px auto;
     background-color: #fa7006;
     border-radius: 15px solid;
+}
+
+.modal-create-set{
+    position:absolute;
+    top:135px;
+    right:55px;
 }
 
 .modal-cancel-set{
