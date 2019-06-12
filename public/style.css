@@ -9,7 +9,7 @@ body{
     color:black;
     text-align: center;
     font-size: 64px;
-    background-color: lightblue;
+    background-color: #fa7006;
     margin: 0;
 }
 
@@ -147,7 +147,7 @@ ul {
     min-width: 200px;
     min-height: 250px;
     margin: 40px auto;
-    background-color: lightgrey;
+    background-color: #fa7006;
     border-radius: 15px solid;
 }
 
@@ -173,7 +173,7 @@ ul {
     min-width: 200px;
     min-height: 150px;
     margin: 40px auto;
-    background-color: lightgrey;
+    background-color: #fa7006;
     border-radius: 15px solid;
 }
 
@@ -214,7 +214,7 @@ ul {
     width: 60px;
     bottom: 10px;
     right: 47%;
-    background-color: #a7d7e8;
+    background-color: #fa7006;
     border-radius: 30px;
     font-size: 24px;
     border:none;
@@ -225,7 +225,7 @@ ul {
 
 .create-new-card:after{
     content: "";
-    background: #87bdd8;
+    background: white;;
     display: block;
     position: absolute;
     padding-top: 300%;
@@ -253,7 +253,7 @@ ul {
     width: 60px;
     bottom: 10px;
     right: 15%;
-    background-color: #a7d7e8;
+    background-color: #fa7006;
     border-radius: 30px;
     font-size: 24px;
     border:none;
@@ -263,7 +263,7 @@ ul {
 }
 .next-flash-card-button:after{
     content: "";
-    background: #87bdd8;
+    background: white;
     display: block;
     position: absolute;
     padding-top: 300%;
@@ -290,7 +290,7 @@ ul {
     width: 60px;
     bottom: 10px;
     left: 15%;
-    background-color: #a7d7e8;
+    background-color: #fa7006;
     border:none;
     border-radius:  30px;
     font-size: 24px;
@@ -300,7 +300,7 @@ ul {
 }
 .prev-flash-card-button:after{
     content: "";
-    background: #87bdd8;
+    background: white;
     display: block;
     position: absolute;
     padding-top: 300%;
