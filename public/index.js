@@ -7,6 +7,10 @@ var modalSetWindow = document.getElementById('create-new-set-modal');
 var newSetButton = document.getElementsByClassName('newSet')[0];
 var navigationList = document.getElementsByClassName('navlist')[0];
 var current = 0;
+//counter variables for clicking on the input boxes
+var counter1 = 1;
+var counter2 = 1;
+var counter3 = 1;
 
 
 var card = document.querySelector('.flash-card');
@@ -70,13 +74,18 @@ if (newSetButton){
   newSetButton.addEventListener('click', function(event){
     //console.log("new set button clicked");
     modalSetWindow.classList.toggle('hidden');
-    document.getElementsByClassName('class-name-input')[0].value = "Set Name";
+
+    document.getElementsByClassName('class-name-input')[0].value = "Class Name";
+    counter3 = 1;
+
+
   });
 }
 
 if (cancelSetButton){
   cancelSetButton.addEventListener('click', function(event){
     modalSetWindow.classList.toggle('hidden');
+    counter3=1;
   });
 }
 
@@ -101,9 +110,8 @@ function insertNewSet(setName){
   navigationList.insertAdjacentHTML('afterbegin', setHTML);
 }
 
-//counter variables for clicking on the input boxes
-var counter1 = 1;
-var counter2 = 1;
+
+
 
 //opens up the term modal
 if (newCardButton){
@@ -171,7 +179,6 @@ var newSetButton = document.getElementsByClassName('create-new-set')[0];
 var modalSetWindow = document.getElementById('create-new-set-modal');
 var modalClassNameInput = document.getElementsByClassName('class-name-input')[0];
 var cancelSetButton = document.getElementsByClassName('modal-cancel-set');
-var counter3 = 1;
 
 
 
