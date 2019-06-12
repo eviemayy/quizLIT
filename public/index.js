@@ -70,7 +70,7 @@ if (newSetButton){
   newSetButton.addEventListener('click', function(event){
     //console.log("new set button clicked");
     modalSetWindow.classList.toggle('hidden');
-    document.getElementsByClassName('class-name-input')[0].value = "Class Name";
+    document.getElementsByClassName('class-name-input')[0].value = "Set Name";
   });
 }
 
@@ -140,8 +140,26 @@ if (modalTermInput){
   });
 }
 
+if (modalTermInput){
+  modalTermInput.addEventListener('focus', function(event){
+    if(counter1 == 1){
+        modalTermInput.value = '';
+        counter1 = 0;
+    }
+  });
+}
+
 if (modalDefInput){
   modalDefInput.addEventListener('click', function(event){
+      if(counter2 == 1){
+          modalDefInput.value = '';
+          counter2 = 0;
+      }
+  });
+}
+
+if (modalDefInput){
+  modalDefInput.addEventListener('focus', function(event){
       if(counter2 == 1){
           modalDefInput.value = '';
           counter2 = 0;
