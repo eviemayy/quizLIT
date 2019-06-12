@@ -49,6 +49,7 @@ ul {
 
 .navitem a:hover {
     background-color: grey;
+    cursor: pointer;
 }
 
 .flash-card-container {
@@ -119,7 +120,7 @@ ul {
   padding: 0;
   background-color: white;
   right: 0%;
-  top: 25%;
+  top: 10%;
   border: 1px solid;
 
 }
@@ -131,8 +132,8 @@ ul {
   border: 0;
   padding: 0;
   background-color: white;
-  right: 35%;
-  top: 25%;
+  right: 5%;
+  top: 30%;
   border: 1px solid;
 }
 
