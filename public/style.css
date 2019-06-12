@@ -131,7 +131,7 @@ ul {
   border: 0;
   padding: 0;
   background-color: white;
-  right: 0%;
+  right: 35%;
   top: 25%;
   border: 1px solid;
 }
@@ -166,6 +166,31 @@ ul {
     padding: 30px 30px;
 }
 
+.set-modal-dialog{
+    width: auto;
+    max-width: 400px;
+    min-width: 200px;
+    min-height: 150px;
+    margin: 40px auto;
+    background-color: lightgrey;
+    border-radius: 15px solid;
+}
+
+.modal-cancel-set{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.set-modal-body{
+    position: relative;
+    padding: 30px 30px;
+}
 .term-input{
     display: flex;
   align-items: center;
