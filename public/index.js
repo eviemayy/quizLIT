@@ -67,6 +67,8 @@ newCardButton.addEventListener('click', function(event){
   document.getElementsByClassName('term-input')[0].value = "Term";
   document.getElementsByClassName('definition-input')[0].value = "Value";
     modalCardWindow.classList.toggle('hidden');
+    counter1 =1;
+    counter2 = 1;
 });
 
 //closes the modal and reenters term and definition 'prompt'
