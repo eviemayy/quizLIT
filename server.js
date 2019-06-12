@@ -23,7 +23,6 @@ app.set('view engine', 'handlebars');
 
 
 app.get('/', function (req, res) {
-  //res.status(200).render('cardPage');
   res.status(200).render('homePage');
 });
 
@@ -47,12 +46,12 @@ app.get('*', function(req, res) {
     res.status(404).render('404');
 });
 
-// MongoClient.connect(mongoUrl, function (err, client) {
-//   if (err) {
-//     throw err;
-//   }
-//   db = client.db(mongoDBName);
+MongoClient.connect(mongoUrl, { useNewUrlParser: true }, function (err, client) {
+  if (err) {
+    throw err;
+  }
+  db = client.db(mongoDBName);
   app.listen(port, function() {
       console.log("== Server is listening on port", port);
   });
-//});
+});
