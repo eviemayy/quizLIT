@@ -96,7 +96,10 @@ ul {
 
 .error-page {
     text-align: center;
-    font-size: 32pt;
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 2px black;
+    margin-top: 160px;
 }
 
 #next-flash-card-button {
@@ -323,4 +326,8 @@ ul {
 
 .title-container{
     text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+    font-size: 25px;
+    margin-top: 160px;
 }
