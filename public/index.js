@@ -6,7 +6,7 @@ var modalDefInput = document.getElementsByClassName('definition-input')[0];
 var modalSetWindow = document.getElementById('create-new-set-modal');
 var newSetButton = document.getElementsByClassName('newSet')[0];
 var navigationList = document.getElementsByClassName('navlist')[0];
-current = 0;
+var current = 0;
 
 var card = document.querySelector('.flash-card');
 var cards = [] //array of cards?
