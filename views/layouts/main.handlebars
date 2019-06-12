@@ -14,21 +14,34 @@
 
   </head>
 
-    <body>
-      <header>
+  <body>
+    <header>
 
       <h1 class="site-title">QuizLIT</h1>
 
-    <nav class="navbar">
-      <ul class="navlist">
-        <li class="navitem"><a href="cs290">CS290</a></li>
-        <li class="navitem newSet"><a href=""> Add Another set +</a></li>
-        <li class="navitem"><a href="home">Home</a></li>
-     </ul>
+      <nav class="navbar">
+        <ul class="navlist">
+          <li class="navitem"><a href="cs290">CS290</a></li>
+          <li class="navitem newSet"><a> Add Another set +</a></li>
+          <li class="navitem"><a href="home">Home</a></li>
+        </ul>
 
-    </nav>
+      </nav>
     </header>
-
+        
         {{{body}}}
-    </body>
+
+        <div id="create-new-set-modal" class="hidden">
+          <div class="set-modal-dialog">
+            <div class="set-modal-body">
+              <div class="class">
+                <textarea class="class-name-input">Class Name</textarea>
+              </div>
+            </div>
+
+            <button type="button" class="modal-create-set">Create New Set</button>
+            <button type="button" class="modal-cancel-set"><i class="far fa-times-circle"></i></button>
+          </div>
+        </div>
+  </body>
 </html>
